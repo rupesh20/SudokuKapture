@@ -23,7 +23,7 @@ using namespace cv;
 using namespace tesseract;
 
 // DEVElOPER:RPzinga
-
+// Global variables,
 int SUDO[9][9];
 Mat img,dst,imgGray;
 Mat detected;
@@ -33,6 +33,7 @@ int lowThreshold;
 int const max_lowThreshold=100;
 string window_name="edge";
 
+// DETECT subroutine takes a subgrid and detects the number in it, using TessBaseAPI
 
 int DETECT(Mat x,TessBaseAPI *api,Mat y){
 	api->SetImage((uchar*)x.data, x.size().width, x.size().height, x.channels(), x.step1());
@@ -52,7 +53,16 @@ int DETECT(Mat x,TessBaseAPI *api,Mat y){
 		return -1;
 	}
 	
-}
+
+
+/*
+CheckRow: Checks any conflicts in the subsequesnt rows
+CheckCol: Checks any conflicts in the subsequesnt cols
+CheckBox: 3x3 sub grids are checked for any conflicts 
+conflicts: iters through all conflicts in the grid 
+
+
+*/
 bool CheckRow(int SUDO[9][9],int row, int num)
 {
 	for(int col=0;col<9;col++)
@@ -105,7 +115,7 @@ bool Unassign(int SUDO[9][9],int &row, int &col){
 	return false;	
 }
 
-
+// SolveSudoku : Backtracking logic for solving the sudoku
 bool SolveSudoku(int SUDO[9][9]){
 	int row,col;
 
@@ -133,7 +143,7 @@ void setup_frame(Mat x)
     cvNamedWindow("window",CV_WINDOW_KEEPRATIO);//windowintialization
     imshow("window",x);//window:image is shown in it
 }
-
+// Canny is used for detecting the edgs in the image of sudoku
 void CannyThreshold(int,void*){
 
     blur(imgGray,detected,Size(1,1));
