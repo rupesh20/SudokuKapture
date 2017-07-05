@@ -22,4 +22,4 @@ Tesseract installtion part
 
 Now, you have done the installation of libraries and dependencies, now you have to run the "main.cpp" file, by typing the below defined command.
 
-`g++ main.cpp -o main `pkg-config opencv --cflags --libs` -llept -ltesseract std=c+11`
+`g++ main.cpp -o main ``pkg-config opencv --cflags --libs` `-llept -ltesseract std=c+11`
