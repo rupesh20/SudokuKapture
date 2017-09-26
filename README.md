@@ -1,5 +1,5 @@
 # SudokuKapture
-Opencv project on solving sudoku images by processing the image with opencv techniues and solving the captured sudoku by Backtracking.
+Opencv project on solving sudoku images by processing the image with opencv techniues and solving the captured sudoku by Backtracking.This project was developed so that tedious sudoku solving becomes a past( I know some of you love sudoku,I do solve them), but automation is needed dude.So here is it and soon an android version of this application will be developed.
 
 ## Getting Started 
 Below are the instructions that will be needed to run the script, you should be familiar with C++, OpenCV, STL and backtracking algorithms in order to understand the source code of the project.
